@@ -25,6 +25,7 @@ import profilescreen from "./pages/profile";
 import HomeStackScreen from './pages/home';
 import notiscreen from './pages/notification';
 import ProfileStackScreen from './pages/profile';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Drawer = createDrawerNavigator();
@@ -38,18 +39,30 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-<Drawer.Navigator>
-  <Drawer.Screen
-  name="home"
-  component={HomeStackScreen}/>
-  <Drawer.Screen
-  name="profile"
-  component={ProfileStackScreen}/>
-  <Drawer.Screen
-  name="notification"
-  component={notiscreen}/>
+      <Drawer.Navigator>
+        <Drawer.Screen
+          name="home"
+          component={HomeStackScreen} options={{
 
-</Drawer.Navigator>
+            title:'Home',
+            
+          }} />
+        <Drawer.Screen
+          name="profile"
+          component={ProfileStackScreen} 
+          options={{
+            title:"Profile"
+          }}
+          />
+        <Drawer.Screen
+          name="notification"
+          component={notiscreen} 
+          options={{
+            title:"Notfication"
+          }}
+          />
+
+      </Drawer.Navigator>
 
 
       {/* <Stack.Navigator>
@@ -65,10 +78,10 @@ export default App;
 
 const styles = StyleSheet.create(
   {
-    container:{
-      flex:1,
-      justifyContent:"center",
-      alignItems:"center"
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center"
     }
   }
 )
