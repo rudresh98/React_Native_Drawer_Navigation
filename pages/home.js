@@ -11,17 +11,27 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Stack=createStackNavigator();
 
-export default function HomeStackScreen()
+export default function HomeStackScreen({navigation})
 {
     return(
         <Stack.Navigator>
             <Stack.Screen
             name="home"
-            component={HomeScreen}/>
+            component={HomeScreen}
+            
+            options={{
+              title:"Home",
+              headerLeft:()=>(
+                <Icon.Button name='camera' size={25}
+                backgroundColor='white' onPress={() => navigation.openDrawer()}/>
+              )
+
+            }}/>
         </Stack.Navigator>
 
     )
