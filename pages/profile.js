@@ -11,16 +11,25 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator();
 
-export default function ProfileStackScreen()
+export default function ProfileStackScreen({navigation})
 {
     return(
         <Stack.Navigator>
             <Stack.Screen
             name="PROFILE"
-            component={ProfileScreen}/>
+            component={ProfileScreen}
+            options={{
+                title:"Profile",
+                headerLeft:()=>(
+                  <Icon.Button name='camera' size={25}
+                  backgroundColor='white' onPress={() => navigation.openDrawer()}/>
+                )
+  
+              }}/>
         </Stack.Navigator>
 
     )
